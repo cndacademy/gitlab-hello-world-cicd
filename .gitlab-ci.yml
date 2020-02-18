@@ -14,23 +14,23 @@ stages:
    - package
    - deploy
 codebuild:
- tags: 
-   - build
+ #tags: 
+  # - build
  stage: build 
  script:   
    - mvn compile 
 
 codetest: 
- tags: 
-   - build 
+ #tags: 
+  # - build 
  stage: test 
  script: 
    - mvn $MAVEN_CLI_OPTS test 
    - echo "The code has been tested" 
 
 Codepackage: 
- tags: 
-   - build 
+ #tags: 
+  # - build 
  stage: package 
  script: 
    - mvn $MAVEN_CLI_OPTS package -Dmaven.test.skip=true 
@@ -42,8 +42,8 @@ Codepackage:
    - master 
 
 Codedeploy: 
- tags: 
-   - build 
+ #tags: 
+  # - build 
  stage: deploy 
  script: 
    - mvn $MAVEN_CLI_OPTS deploy -Dmaven.test.skip=true 
