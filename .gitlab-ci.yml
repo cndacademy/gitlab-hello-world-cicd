@@ -25,7 +25,8 @@ codetest:
   # - build 
  stage: test 
  script: 
-   - mvn $MAVEN_CLI_OPTS test 
+  # - mvn $MAVEN_CLI_OPTS test 
+   - mvn test 
    - echo "The code has been tested" 
 
 Codepackage: 
@@ -33,7 +34,8 @@ Codepackage:
   # - build 
  stage: package 
  script: 
-   - mvn $MAVEN_CLI_OPTS package -Dmaven.test.skip=true 
+   #- mvn $MAVEN_CLI_OPTS package -Dmaven.test.skip=true 
+   - mvn package -Dmaven.test.skip=true 
    - echo "Packaging the code" 
  artifacts: 
   paths: 
