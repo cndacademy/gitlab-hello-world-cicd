@@ -1,0 +1,52 @@
+image: maven 
+
+variables:
+   MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+cache: 
+paths:
+   - .m2/repository/
+   - target/
+
+stages:
+   - build
+   - test
+   - package
+   - deploy
+codebuild:
+tags: 
+   - build
+stage: build 
+script:   
+   - mvn compile 
+
+codetest: 
+tags: 
+   - build 
+stage: test 
+script: 
+   - mvn $MAVEN_CLI_OPTS test 
+   - echo "The code has been tested" 
+
+Codepackage: 
+tags: 
+   - build 
+stage: package 
+script: 
+   - mvn $MAVEN_CLI_OPTS package -Dmaven.test.skip=true 
+   - echo "Packaging the code" 
+artifacts: 
+   paths: 
+      - target/*.war 
+only: 
+   - master 
+
+Codedeploy: 
+tags: 
+   - build 
+stage: deploy 
+script: 
+   - mvn $MAVEN_CLI_OPTS deploy -Dmaven.test.skip=true 
+   - echo "installing the package in local repository" 
+only: 
+   - master
