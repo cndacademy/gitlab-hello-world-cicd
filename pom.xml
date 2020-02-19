@@ -25,19 +25,18 @@
 			</plugin>
 		</plugins>
 	</build>
-	<distributionManagement>
-	    <repository>
-          <id>central</id>
-          <name>Central</name>
-          <url>${env.Nexus_REPO_URL}central/</url>
+<distributionManagement>
+        <repository>
+            <id>mydeployment</id>
+            <name>Internal Releases</name>
+            <url>http://34.67.31.175:8081/repository/maven-releases/</url>
         </repository>
-       <snapshotRepository>
-          <id>snapshots</id>
-          <name>Snapshots</name>
-          <url>${env.Nexus_REPO_URL}snapshots/</url>
+        <snapshotRepository>
+            <id>mydeployment</id>
+            <name>Internal Snapshot Releases</name>
+            <url>http://34.67.31.175:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
-	    
-	</distributionManagement>
+ </distributionManagement>
 
 </project>
 
