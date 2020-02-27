@@ -82,6 +82,7 @@ Deploy:
    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
    - mkdir -p ~/.ssh && chmod 700 ~/.ssh
    - ssh-keyscan -t rsa -H $TOMCAT_SERVER >> ~/.ssh/known_hosts && chmod 644 ~/.ssh/known_hosts
-   - sudo scp dist.zip $TOMCAT_SERVER_USER@$TOMCAT_SERVER:/tmp/
+   - touch test
+   - scp test $TOMCAT_SERVER_USER@$TOMCAT_SERVER:/tmp/
  only: 
    - master 
