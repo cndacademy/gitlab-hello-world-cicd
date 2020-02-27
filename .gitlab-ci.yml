@@ -50,7 +50,7 @@ Codedeploy:
  script: 
   # - mvn $MAVEN_CLI_OPTS deploy -Dmaven.test.skip=true
    - mvn package
-   - mvn deploy:deploy-file -DgroupId=com.efsavage -DartifactId=hello-world -Dversion=1.11 -Dpackaging=war -Dfile=target/hello-world-1.11.war -DgeneratePom=true -DrepositoryId=mydeployment -Durl=http://34.69.178.31:8081/repository/maven-releases
+   - mvn deploy:deploy-file -DgroupId=com.efsavage -DartifactId=hello-world -Dversion=1.11 -Dpackaging=war -Dfile=target/hello-world-1.10.war -DgeneratePom=true -DrepositoryId=mydeployment -Durl=http://34.69.178.31:8081/repository/maven-releases
   # - curl -v -u admin:admin --upload-file target/hello-world-war-1.0.65.war  http://34.69.178.31:8081/repository/maven-releases/mya-app.war   
    #- mvn deploy -Dmaven.test.skip=true -X
    - echo "installing the package in local repository" 
