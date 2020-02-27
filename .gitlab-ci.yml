@@ -17,7 +17,7 @@ stages:
 
 codequality:
  #tags:
- stage:codequality
+ stage: codequality
  script:
     - mvn sonar:sonar
 
