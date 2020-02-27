@@ -3,8 +3,8 @@
   <servers>
     <server>
       <id>mydeployment</id>
-      <username>admin</username>
-      <password>admin</password>
+      <username>mydeployment</username>
+      <password>mydeployment</password>
     </server>
   </servers>
 </settings> 
