@@ -86,8 +86,8 @@ Deploy:
  #  - service ssh restart
    - touch test
    - ls -ll ~/.ssh
-   - chown -R mahadevops_feb20 ~/.ssh/
-   - chgrp -R mahadevops_feb20 ~/.ssh/
+   #- chown -R mahadevops_feb20 ~/.ssh/
+  # - chgrp -R mahadevops_feb20 ~/.ssh/
    - ssh -v $TOMCAT_SERVER_USER@$TOMCAT_SERVER
    - scp test $TOMCAT_SERVER_USER@$TOMCAT_SERVER:/tmp/
    - cat /var/log/auth.log
