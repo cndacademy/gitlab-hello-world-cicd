@@ -85,6 +85,7 @@ Deploy:
    - echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
  #  - service ssh restart
    - touch test
+   - ssh -o "StrictHostKeyChecking=no" -p22 $TOMCAT_USER@$TOMCAT_SERVER "mkdir -p /home/test_app/app/"
    - ls -ll ~/.ssh
    #- chown -R mahadevops_feb20 ~/.ssh/
   # - chgrp -R mahadevops_feb20 ~/.ssh/
