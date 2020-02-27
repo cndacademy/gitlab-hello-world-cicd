@@ -77,7 +77,7 @@ Deploy:
  script:
    - cat /etc/os-release
    - whoami
-   - apt update && apt install openssh-client ssh
+   - apt update && apt install openssh-client ssh -y
    - eval $(ssh-agent -s)
    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
    - mkdir -p ~/.ssh && chmod 777 ~/.ssh
