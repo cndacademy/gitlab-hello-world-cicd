@@ -25,6 +25,12 @@
 			</plugin>
 		</plugins>
 	</build>
+<properties>
+  <sonar.projectKey>2408</sonar.projectKey>
+  <sonar.organization>mytestkey</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  <sonar.login>da9faaa0754c6229c86824000be007fd40095d3a</sonar.login>
+</properties>
  <distributionManagement>
         <repository>
             <id>mydeployment</id>

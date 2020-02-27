@@ -9,10 +9,18 @@ cache:
    - target/
 
 stages:
+   - codequality
    - build
    - test
    - package
    - deploy
+
+codequality:
+ #tags:
+ stage:codequality
+ script:
+    - mvn sonar:sonar
+
 codebuild:
  #tags: 
   # - build
