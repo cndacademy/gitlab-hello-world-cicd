@@ -49,7 +49,7 @@ Codedeploy:
  stage: deploy 
  script: 
   # - mvn $MAVEN_CLI_OPTS deploy -Dmaven.test.skip=true
-   - mvn deploy -Dmaven.test.skip=true
+   - mvn deploy -Dmaven.test.skip=true -X
    - echo "installing the package in local repository" 
  only: 
    - master
