@@ -15,6 +15,7 @@ stages:
    - package
    - publish
    - deploy
+   - deploy-ssh
 
 codequality:
  #tags:
@@ -65,6 +66,14 @@ PublishNexus:
    - echo "installing the package in local repository" 
  only: 
    - master
+Deploy_ssh:
+ stage: deploy-ssh
+ script:
+  - which ssh-agent
+  - eval $(ssh-agent -s)
+  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+  - '[[ -f /.dockerenv ]] && mkdir -p ~/.ssh && echo "$KNOWN_HOST" > ~/.ssh/known_hosts'
+  - ssh user@34.69.178.31
 Deploy: 
  #tags: 
   # - build 
