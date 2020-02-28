@@ -81,18 +81,22 @@ Deploy:
    - eval $(ssh-agent -s)
    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
    - mkdir -p ~/.ssh && chmod 777 ~/.ssh
-   - ssh-keyscan -t rsa -H $TOMCAT_SERVER >> ~/.ssh/known_hosts && chmod 777 ~/.ssh/*
-   - echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
- #  - service ssh restart
+   -  echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+   -  chmod 600 ~/.ssh/id_rsa && chmod 700 ~/.ssh
    - touch test
+   - scp -v  test $TOMCAT_SERVER_USER@$TOMCAT_SERVER:/tmp/
+  # - ssh-keyscan -t rsa -H $TOMCAT_SERVER >> ~/.ssh/known_hosts && chmod 777 ~/.ssh/*
+  # - echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
+ #  - service ssh restart
+   #- touch test
    #- ssh -o "StrictHostKeyChecking=no" -p22 $TOMCAT_USER@$TOMCAT_SERVER "mkdir -p /home/test_app/app/"
    - ls -ll ~/.ssh
-   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+   #- '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
    #- chown -R mahadevops_feb20 ~/.ssh/
   # - chgrp -R mahadevops_feb20 ~/.ssh/
-   - cat   ~/.ssh/known_hosts
+   #- cat   ~/.ssh/known_hosts
   # - ssh -v $TOMCAT_SERVER_USER@$TOMCAT_SERVER
-   - scp test $TOMCAT_SERVER_USER@$TOMCAT_SERVER:/tmp/
+   #- scp test $TOMCAT_SERVER_USER@$TOMCAT_SERVER:/tmp/
    - cat /var/log/auth.log
  only: 
    - master 
