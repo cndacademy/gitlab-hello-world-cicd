@@ -83,6 +83,7 @@ Deploy:
    - mkdir -p ~/.ssh && chmod 777 ~/.ssh
    -  echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
    -  chmod 600 ~/.ssh/id_rsa && chmod 700 ~/.ssh
+   - - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
    - touch test
    - scp -v  test $TOMCAT_SERVER_USER@$TOMCAT_SERVER:/tmp/
   # - ssh-keyscan -t rsa -H $TOMCAT_SERVER >> ~/.ssh/known_hosts && chmod 777 ~/.ssh/*
