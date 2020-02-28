@@ -85,7 +85,7 @@ Deploy:
    -  chmod 600 ~/.ssh/id_rsa && chmod 700 ~/.ssh
    - - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
    - touch test
-   - scp -v  test $TOMCAT_SERVER_USER@$TOMCAT_SERVER:/tmp/
+   - scp -v -i ~/.ssh/id_rsa  test $TOMCAT_SERVER_USER@$TOMCAT_SERVER:/tmp/
   # - ssh-keyscan -t rsa -H $TOMCAT_SERVER >> ~/.ssh/known_hosts && chmod 777 ~/.ssh/*
   # - echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
  #  - service ssh restart
