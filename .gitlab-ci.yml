@@ -77,7 +77,8 @@ Deploy_ssh:
 Deploy: 
  #tags: 
   # - build 
- stage: deploy 
+ stage: deploy
+ when: manual
  script: 
   deployTomcat
  stage: deploy
